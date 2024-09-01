@@ -374,5 +374,93 @@ const bills = [
 ];
 
 // Start coding here
+function priceEachLocation(bills){
+    let allLocation = bills.map((bills) => bills.location);
+    let uniqueLocation = allLocation.filter((Location,index) => allLocation.indexOf(Location) === index);
+    let totalEachLocation = {};
+    let sumEachLocation = [];
+    
+    for (let item of bills){
+        let eachLocation = item.location;
+    
+        for (let i = 0; i < bills.length; i++){
+            if (bills[i].location === item.location){
+                sumEachLocation.push(bills[i].total);
+            }
+        }
+        totalEachLocation[eachLocation] = sumEachLocation.reduce((total,sumEachLocation) => total + sumEachLocation);
+        
+    }
+    return totalEachLocation;
+}
 
-const totalPaidByLocation;
+const totalPaidByLocation = priceEachLocation(bills);
+console.log(totalPaidByLocation);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*      เก็บไว้ใช้เป็นตัวอย่างหลายๆแบบใช้ส่วนตัว เผื่อลืม
+//===แยกชื่อสถานที่========//
+let allLocation = bills.map((bills) => bills.location);
+//=======================//
+//----ตัดสถานที่ซ้ำออก------//
+//let uniqueLocation = allLocation.filter((Location,index) => allLocation.indexOf(Location) === index);
+
+let uniqueLocation = allLocation.reduce((location,allLocation) => {
+    if (location.includes(allLocation) !== true) {
+        location.push(allLocation);
+    }
+    return location;
+}, []);
+
+const uniqueLocation = [];
+for (let i = 0; i < allLocation.length; i++) {
+  if(uniqueLocation.includes(allLocation[i]) !== true) {
+    uniqueLocation.push(allLocation[i]);
+  }
+}
+//-------------------------//
+//+++++++รวมยอดแต่ละสถานที่+++++++//
+let totalEachLocation = {};
+let sumEachLocation = [];
+
+for (let item of bills){
+    let eachLocation = item.location;
+
+    for (let i = 0; i < bills.length; i++){
+        if (bills[i].location === item.location){
+            sumEachLocation.push(bills[i].total);
+        }
+    }
+ 
+    totalEachLocation[eachLocation] = sumEachLocation.reduce((total,sumEachLocation) => total + sumEachLocation);
+    
+}
+//console.log(sumEachLocation);
+console.log(totalEachLocation);
+//console.log(uniqueLocation);
+*/

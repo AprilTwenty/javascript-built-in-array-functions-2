@@ -374,4 +374,21 @@ const bills = [
 ];
 
 // Start coding here
-const billMembers;
+function pickName(bills){
+  const allmember = bills.filter((bills) => bills.member !== null);
+  return allmember.map((allmember) => allmember.member.name);
+}
+const billMembers = pickName(bills);
+console.log(billMembers);
+/*
+const billMembers = bills.map((bills) => bills.member);
+const haveMember = billMembers.filter((billMembers) => billMembers !== null);
+const memberName = haveMember.map((haveMember) => haveMember.name);
+console.log(memberName);
+*/
+/*
+const billMembers = bills.map((bills) => {
+  return bills.member !== null ? bills.member.name:'';
+});
+console.log(billMembers);// empty array
+*/

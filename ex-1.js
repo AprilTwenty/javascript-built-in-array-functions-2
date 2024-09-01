@@ -374,3 +374,13 @@ const bills = [
 ];
 
 // Start coding here
+function totalPrice(bills){
+  const arrTotal = bills.map((bills) => {
+    return bills.total;
+});
+return "Total bill transection is " +arrTotal.reduce((sum,arrTotal) => {
+  return sum + arrTotal;
+},0);
+}
+
+console.log(totalPrice(bills));

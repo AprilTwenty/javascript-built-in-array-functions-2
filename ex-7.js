@@ -1,5 +1,13 @@
 function isPalindrome(string) {
   // Start coding here
+  
+  let revert = string.split('');
+  revert = revert.reverse();
+  revert = revert.join('');
+  return revert === string;
+  
+  //let revert = string.split('').reverse().join('');
+  //return revert === string;
 }
 
 //Example case
